@@ -25,7 +25,8 @@ for (aFile in list.files('tidy-data/')) {
 # Part 1: dataset merge (train+test) --------------------------------------
 
 
-# Prepare the references hat we will merge to put useful names: abilities names and features names
+# Prepare the references hat we will merge to put useful names: abilities names
+# and features names
 # Read the ability table
 dtAbilityList <- read.table(file = 'raw-data/UCI HAR Dataset/activity_labels.txt',
                             header = FALSE, sep = " ",
@@ -121,4 +122,4 @@ dtAverage <- dtMerged %>%
     group_by(subjectID, ability)  %>%
     summarise_each(funs(mean))
 
-write.table(dtMerged, file = "tidy-data/uci-har-data-average.txt", row.names = FALSE)
+write.table(dtAverage, file = "tidy-data/uci-har-data-average.txt", row.names = FALSE)
