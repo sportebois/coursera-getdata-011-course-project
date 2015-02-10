@@ -36,3 +36,23 @@ The `codebook.md` file describe:
 The `run_analysis.R` file is the actual instruction list, the code-recipe that parse, analyse and digest the raw data sets to produce the tidy data, as described in the codebook. This script has been commented in details.
 It requires a few dependency: only the `dplyr` package is required, everything else comes with standard R.
 In order to run it correctly, you should se your working directory to this folder (containing the `run_analysis.R` script and this readme), and the raw data must be in the `raw-data/UCI HAR Dataset/` folder, exactly like on the Github repo.
+
+
+Here's an extract of the run_analysis script (please refer to the script for more details):
+
+
+- Cleanup the tidy data set and initalize the environment
+   In order to make sure the tidy data set is always recreated from scratch, the operation starts by deleting anything in the output folder.
+
+- Read the abilities list and the features names
+   Both test and train raw data use theses IDs. So we load them to be able to use it in later processing.
+
+- Prepare a dataset submerge, that will be used for both test and train data. Both test and train data are organized in the same way. This function will load the subject file, the X file (with all the features measures) and the 'y' file with the activities
+This function  binds the columns to add the ability used with the measures, as well as the subject. It also use the reference data loaded before (activities names and features names) to give meaningful labels to the observations.
+
+- This function also filter the features measure by their names, to keep onky the ones relevant for mean or standard deviation.
+
+- this utility function is called on the test data set, then on the train data set. This two submerge are then merged together to get the tidy daata set.
+- This first result is saved to 'tidy-data/uci-har-data.txt'
+- This merged data set is grouped by subject and by ability, and the mean is applied on all this groups to summarize the data (with the help of dplyr)
+- This last result is saved to 'tidy-data/uci-har-data-average.txt'
