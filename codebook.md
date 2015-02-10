@@ -16,6 +16,10 @@ More information about this data set can be found on the [Machine Learning repos
 For more infos about the raw data, please read `raw-data/UCI HAR Dataset/README.txt`, which details how these data were collected and measured.
 
 
+
+Informations from the raw data were ten processed. The processing _instructions list_ is in the `run_analysis.R` script. This script is extensively commented to explain in details the various operations. Please have a look at this script for any details about the data mapping and cleaning.   
+
+
 ## Information about the tidy data set variables
 
 
