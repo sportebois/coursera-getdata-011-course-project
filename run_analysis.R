@@ -52,8 +52,8 @@ getDataSet <- function(subject.file, X.file, y.file) {
     #    containing 1 observation: the id of the subject
     #  X.file: path to the "X_{test,train}.txt" file,
     #    containing 562 features observations
-    #  y.file: path to the "X_{test,train}.txt" file,
-    #    containing 562 features observations
+    #  y.file: path to the "y_{test,train}.txt" file,
+    #    containing the activities
     #
     # Returns:
     #  the merged dataframe with observation names added
